@@ -1,0 +1,28 @@
+[
+  {
+    "guestName": "Meera Menon",
+    "attending": true,
+    "guestCount": 2,
+    "eventsAttending": [
+      "Haldi & Mehendi",
+      "Sangeet",
+      "Wedding & Reception"
+    ],
+    "message": "Wishing you both a lifetime of love, joy, and togetherness! Can't wait to celebrate with you!",
+    "submittedAt": "2026-10-09T19:36:35.458Z",
+    "id": "rsvp_1791574595458"
+  },
+  {
+    "guestName": "Meera MenonMeera Menon",
+    "attending": true,
+    "guestCount": 2,
+    "eventsAttending": [
+      "Haldi & Mehendi",
+      "Sangeet",
+      "Wedding & Reception"
+    ],
+    "message": "Wishing you both a lifetime of love and joy!",
+    "submittedAt": "2026-10-09T19:38:45.402Z",
+    "id": "rsvp_1791574725402"
+  }
+]

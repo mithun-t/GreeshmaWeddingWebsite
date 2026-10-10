@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-script: 'Alex Brush', cursive;
+    --font-malayalam: 'Noto Serif Malayalam', Georgia, serif;
+
+    --color-cream: #FAF6F0;
+    --color-sand: #F5EFEB;
+    --color-rose: #8B263E;
+    --color-rose-deep: #5C1929;
+    --color-forest: #1C3326;
+    --color-gold: #C5A059;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: #2D2623;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-serif-elegant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-malayalam {
+  font-family: 'Noto Serif Malayalam', Georgia, serif;
+}
+
+/* Sound equalizer bars animation */
+@keyframes soundBar1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+@keyframes soundBar2 {
+  0%, 100% { height: 14px; }
+  50% { height: 6px; }
+}
+
+@keyframes soundBar3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+
+.animate-bar-1 {
+  animation: soundBar1 0.8s ease-in-out infinite;
+}
+
+.animate-bar-2 {
+  animation: soundBar2 0.7s ease-in-out infinite 0.15s;
+}
+
+.animate-bar-3 {
+  animation: soundBar3 0.9s ease-in-out infinite 0.3s;
+}
+
+/* Polaroid subtle hover lift */
+.polaroid-shadow {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.12), 0 20px 40px -15px rgba(139, 38, 62, 0.1);
+}
+
+/* Gentle bounce for scroll cue */
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.animate-soft-bounce {
+  animation: softBounce 2s ease-in-out infinite;
+}
