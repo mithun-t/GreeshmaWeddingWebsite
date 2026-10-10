@@ -16,11 +16,11 @@ export const weddingData: WeddingConfig = {
   mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62867.72892994917!2d76.24288!3d9.96743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6bf%3A0xbd582caa5844192!2sFort%20Kochi%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   welcomeQuote:
     'Just like a beautiful melody, our lives have intertwined perfectly. We invite you to join us as we celebrate this new chapter, surrounded by the warmth of our loved ones.',
-  audioSrc: '/assets/audio/bgm.mp3',
+  audioSrc: `${import.meta.env.BASE_URL}assets/audio/bgm.mp3`,
   images: {
-    heroBougainvillea: '/assets/images/hero-bougainvillea.jpg',
-    couplePortrait: '/assets/images/couple-portrait.jpg',
-    coupleVideoFrame: '/assets/images/couple-video.jpg',
+    heroBougainvillea: `${import.meta.env.BASE_URL}assets/images/hero-bougainvillea.jpg`,
+    couplePortrait: `${import.meta.env.BASE_URL}assets/images/couple-portrait.jpg`,
+    coupleVideoFrame: `${import.meta.env.BASE_URL}assets/images/couple-video.jpg`,
   },
   events: [
     {

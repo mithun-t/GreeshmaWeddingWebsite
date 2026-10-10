@@ -75,5 +75,7 @@ function rsvpApiPlugin(): Plugin {
 }
 
 export default defineConfig({
+  base: '/GreeshmaWeddingWebsite/',
   plugins: [react(), tailwindcss(), rsvpApiPlugin()],
 })
+
