@@ -11,6 +11,14 @@ export interface WeddingEvent {
   dressCode?: string
 }
 
+export interface GalleryPhoto {
+  id: string
+  src: string
+  alt: string
+  title: string
+  subtitle?: string
+}
+
 export interface WeddingConfig {
   coupleName: string
   groomName: string
@@ -32,7 +40,10 @@ export interface WeddingConfig {
     heroBougainvillea: string
     couplePortrait: string
     coupleVideoFrame: string
+    couplePicture1?: string
+    couplePicture2?: string
   }
+  gallery?: GalleryPhoto[]
 }
 
 export interface RsvpSubmission {

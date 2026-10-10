@@ -22,7 +22,7 @@ export function CelebrationSection({ data, onOpenMap }: CelebrationSectionProps)
           </span>
         </div>
 
-        {/* Couple Headline: Nithya & Arun */}
+        {/* Couple Headline */}
         <h2 className="font-serif-title text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#1F3328]">
           {data.coupleName}
         </h2>

@@ -1,6 +1,7 @@
 import type { WeddingEvent } from '../types/wedding.ts'
+import { weddingData } from '../data/weddingData.ts'
 
-export function createGoogleCalendarUrl(event: WeddingEvent): string {
+export function createGoogleCalendarUrl(event: WeddingEvent, coupleName: string = weddingData.coupleName): string {
   const startDate = new Date(event.dateIso)
   // End date default 4 hours later
   const endDate = new Date(startDate.getTime() + 4 * 60 * 60 * 1000)
@@ -8,7 +9,7 @@ export function createGoogleCalendarUrl(event: WeddingEvent): string {
   const formatGCalDate = (d: Date) =>
     d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
 
-  const title = encodeURIComponent(`${event.title} • Nithya & Arun Wedding`)
+  const title = encodeURIComponent(`${event.title} • ${coupleName} Wedding`)
   const details = encodeURIComponent(
     `${event.description || 'Wedding Celebration'} | Dress Code: ${event.dressCode || 'Ethnic Festive'}`,
   )
@@ -18,7 +19,7 @@ export function createGoogleCalendarUrl(event: WeddingEvent): string {
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`
 }
 
-export function downloadIcsFile(event: WeddingEvent): void {
+export function downloadIcsFile(event: WeddingEvent, coupleName: string = weddingData.coupleName): void {
   const startDate = new Date(event.dateIso)
   const endDate = new Date(startDate.getTime() + 4 * 60 * 60 * 1000)
 
@@ -34,7 +35,7 @@ export function downloadIcsFile(event: WeddingEvent): void {
     `DTSTAMP:${formatIcsDate(new Date())}`,
     `DTSTART:${formatIcsDate(startDate)}`,
     `DTEND:${formatIcsDate(endDate)}`,
-    `SUMMARY:${event.title} - Nithya & Arun Wedding`,
+    `SUMMARY:${event.title} - ${coupleName} Wedding`,
     `DESCRIPTION:${event.description || 'Wedding Celebration'}`,
     `LOCATION:${event.venue}, ${event.city}`,
     'STATUS:CONFIRMED',

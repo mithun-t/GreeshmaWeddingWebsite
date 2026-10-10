@@ -202,7 +202,7 @@ export function RsvpSection({ data }: RsvpSectionProps) {
                 <textarea
                   id="message"
                   rows={2}
-                  placeholder="Send a heartfelt message to Nithya & Arun..."
+                  placeholder={`Send a heartfelt message to ${data.coupleName}...`}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full rounded-xl border border-[#D5CBC2] bg-[#FDFBF7] px-4 py-3 text-sm text-[#2D2623] placeholder-[#A89C94] focus:border-[#8B263E] focus:outline-hidden transition-colors resize-none"

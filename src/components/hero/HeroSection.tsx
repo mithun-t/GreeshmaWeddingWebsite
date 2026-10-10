@@ -45,7 +45,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           {data.titleRegional}
         </p>
 
-        {/* Wedding Date in clean tracked style: 20-12-26 */}
+        {/* Wedding Date in clean tracked style */}
         <div className="mt-6 sm:mt-8">
           <p className="font-serif-elegant text-xl sm:text-2xl tracking-[0.3em] font-medium text-[#4A3B32]">
             {data.dateLabel}

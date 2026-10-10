@@ -6,6 +6,7 @@ import { FloatingAudioPlayer } from './components/audio/FloatingAudioPlayer.tsx'
 import { HeroSection } from './components/hero/HeroSection.tsx'
 import { CelebrationSection } from './components/celebration/CelebrationSection.tsx'
 import { CountdownSection } from './components/countdown/CountdownSection.tsx'
+import { GallerySection } from './components/gallery/GallerySection.tsx'
 import { ItinerarySection } from './components/itinerary/ItinerarySection.tsx'
 import { RsvpSection } from './components/rsvp/RsvpSection.tsx'
 import { VenueMapModal } from './components/map/VenueMapModal.tsx'
@@ -36,6 +37,7 @@ export default function App() {
         <HeroSection data={weddingData} />
         <CelebrationSection data={weddingData} onOpenMap={() => handleOpenMap()} />
         <CountdownSection data={weddingData} />
+        <GallerySection data={weddingData} />
         <ItinerarySection data={weddingData} onOpenMap={handleOpenMap} />
         <RsvpSection data={weddingData} />
       </main>

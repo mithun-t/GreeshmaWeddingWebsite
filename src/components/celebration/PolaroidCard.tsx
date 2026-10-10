@@ -11,13 +11,13 @@ export function PolaroidCard({ data }: PolaroidCardProps) {
       {/* Polaroid Container with realistic paper texture & shadow */}
       <div className="group relative rounded-sm bg-white p-4 sm:p-5 pb-8 sm:pb-10 polaroid-shadow transition-all duration-500 hover:-translate-y-1 hover:rotate-1">
         {/* Photo Container */}
-        <div className="relative aspect-4/3 sm:aspect-square w-full overflow-hidden rounded-xs bg-[#F5EFEB]">
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xs bg-[#F5EFEB]">
           <img
             src={data.images.couplePortrait}
             alt={data.coupleName}
-            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
+            className="h-full w-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-102"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Polaroid Bottom Caption matching video */}

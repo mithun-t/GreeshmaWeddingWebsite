@@ -20,7 +20,7 @@ export function Footer({ data }: FooterProps) {
     <footer className="relative w-full py-12 px-6 bg-[#FAF6F0] border-t border-[#8B263E]/10 flex flex-col items-center text-center">
       {/* Title & Tagline matching reference video */}
       <h3 className="font-serif-title text-base sm:text-lg font-semibold tracking-[0.25em] text-[#2D2623] uppercase">
-        {data.coupleName} • 2026
+        {data.coupleName} • {new Date(data.weddingDateIso).getFullYear()}
       </h3>
 
       <p className="font-serif-elegant italic text-sm text-[#7A6A60] mt-1.5">

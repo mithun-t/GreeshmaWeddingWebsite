@@ -1,14 +1,14 @@
 import type { WeddingConfig } from '../types/wedding.ts'
 
 export const weddingData: WeddingConfig = {
-  coupleName: 'Nithya & Arun',
-  groomName: 'Arun',
-  brideName: 'Nithya',
+  coupleName: 'Greeshma & Aswin',
+  groomName: 'Aswin EP',
+  brideName: 'Greeshma Sharmik',
   titleEn: 'Hridayam',
   titleRegional: 'ഹൃദയം',
-  dateLabel: '20-12-26',
+  dateLabel: '01-01-27',
   timeLabel: '4:00 PM Onwards',
-  weddingDateIso: '2026-12-20T16:00:00',
+  weddingDateIso: '2027-01-01T16:00:00',
   venue: 'Sea View Resort',
   city: 'Kochi',
   state: 'Kerala',
@@ -19,15 +19,33 @@ export const weddingData: WeddingConfig = {
   audioSrc: `${import.meta.env.BASE_URL}assets/audio/bgm.mp3`,
   images: {
     heroBougainvillea: `${import.meta.env.BASE_URL}assets/images/hero-bougainvillea.jpg`,
-    couplePortrait: `${import.meta.env.BASE_URL}assets/images/couple-portrait.jpg`,
+    couplePortrait: `${import.meta.env.BASE_URL}assets/images/couple-picture-1.jpg`,
     coupleVideoFrame: `${import.meta.env.BASE_URL}assets/images/couple-video.jpg`,
+    couplePicture1: `${import.meta.env.BASE_URL}assets/images/couple-picture-1.jpg`,
+    couplePicture2: `${import.meta.env.BASE_URL}assets/images/couple-picture-2.jpg`,
   },
+  gallery: [
+    {
+      id: 'cherished-glance',
+      src: `${import.meta.env.BASE_URL}assets/images/couple-picture-1.jpg`,
+      alt: 'Greeshma and Aswin in traditional Kerala attire holding a vintage camera',
+      title: 'Moments Through The Lens',
+      subtitle: 'A quiet glance, a shared smile, and a lifetime of stories waiting to be captured.',
+    },
+    {
+      id: 'art-and-muse',
+      src: `${import.meta.env.BASE_URL}assets/images/couple-picture-2.jpg`,
+      alt: 'Greeshma and Aswin mirror portrait in traditional elegance',
+      title: 'Reflections of Love',
+      subtitle: 'Timeless grace and warmth in every glance, captured as living art.',
+    },
+  ],
   events: [
     {
       id: 'haldi-mehendi',
       title: 'Haldi & Mehendi',
-      dateLabel: '19-12-26',
-      dateIso: '2026-12-19T10:00:00',
+      dateLabel: '31-12-26',
+      dateIso: '2026-12-31T10:00:00',
       timeLabel: '10:00 AM',
       venue: 'Sea View Resort',
       city: 'Kochi, Kerala',
@@ -38,8 +56,8 @@ export const weddingData: WeddingConfig = {
     {
       id: 'sangeet',
       title: 'Sangeet',
-      dateLabel: '19-12-26',
-      dateIso: '2026-12-19T19:00:00',
+      dateLabel: '31-12-26',
+      dateIso: '2026-12-31T19:00:00',
       timeLabel: '7:00 PM',
       venue: 'Sea View Resort',
       city: 'Kochi, Kerala',
@@ -50,8 +68,8 @@ export const weddingData: WeddingConfig = {
     {
       id: 'wedding-reception',
       title: 'Wedding & Reception',
-      dateLabel: '20-12-26',
-      dateIso: '2026-12-20T10:00:00',
+      dateLabel: '01-01-27',
+      dateIso: '2027-01-01T10:00:00',
       timeLabel: '10:00 AM',
       venue: 'Sea View Resort',
       city: 'Kochi, Kerala',
