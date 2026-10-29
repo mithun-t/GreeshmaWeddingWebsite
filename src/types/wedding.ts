@@ -49,11 +49,21 @@ export interface WeddingConfig {
 export interface RsvpSubmission {
   id?: string
   guestName: string
+  phone?: string
+  email?: string
   attending: boolean
   guestCount: number
   eventsAttending: string[]
   message?: string
   submittedAt?: string
+}
+
+export interface AdminRsvpStats {
+  totalSubmissions: number
+  totalAttending: number
+  totalDeclined: number
+  totalGuestCount: number
+  eventBreakdown: Record<string, number>
 }
 
 export interface CountdownTime {

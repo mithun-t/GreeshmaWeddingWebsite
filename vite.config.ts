@@ -9,7 +9,22 @@ function rsvpApiPlugin(): Plugin {
     name: 'rsvp-api-plugin',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
-        if (req.url === '/api/rsvp' && req.method === 'POST') {
+        const urlPath = (req.url || '').split('?')[0]
+        const isRsvpRoute =
+          urlPath === '/api/rsvp' ||
+          urlPath === '/GreeshmaWeddingWebsite/api/rsvp' ||
+          urlPath.endsWith('/api/rsvp')
+
+        if (isRsvpRoute && req.method === 'OPTIONS') {
+          res.setHeader('Access-Control-Allow-Origin', '*')
+          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+          res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+          res.statusCode = 204
+          res.end()
+          return
+        }
+
+        if (isRsvpRoute && req.method === 'POST') {
           let body = ''
           req.on('data', (chunk) => {
             body += chunk
@@ -17,9 +32,9 @@ function rsvpApiPlugin(): Plugin {
 
           req.on('end', async () => {
             try {
-              const data = JSON.parse(body)
+              const data = body ? JSON.parse(body) : {}
               const filePath = path.resolve(import.meta.dirname, 'src/data/rsvps.json')
-              
+
               let existingList: any[] = []
               try {
                 const content = await fs.readFile(filePath, 'utf-8')
@@ -28,18 +43,29 @@ function rsvpApiPlugin(): Plugin {
                 existingList = []
               }
 
-              existingList.push({
-                ...data,
-                id: 'rsvp_' + Date.now(),
-                submittedAt: new Date().toISOString(),
-              })
+              const newEntry = {
+                id: data.id || 'rsvp_' + Date.now(),
+                guestName: data.guestName || 'Anonymous Guest',
+                phone: data.phone || '',
+                email: data.email || '',
+                attending: data.attending ?? true,
+                guestCount: data.guestCount ?? 1,
+                eventsAttending: Array.isArray(data.eventsAttending) ? data.eventsAttending : [],
+                message: data.message || '',
+                submittedAt: data.submittedAt || new Date().toISOString(),
+              }
+
+              // Prepend newest first
+              existingList.unshift(newEntry)
 
               await fs.writeFile(filePath, JSON.stringify(existingList, null, 2) + '\n', 'utf-8')
 
+              res.setHeader('Access-Control-Allow-Origin', '*')
               res.setHeader('Content-Type', 'application/json')
               res.statusCode = 200
-              res.end(JSON.stringify({ success: true, message: 'RSVP saved successfully' }))
+              res.end(JSON.stringify({ success: true, message: 'RSVP saved successfully', id: newEntry.id }))
             } catch (error) {
+              res.setHeader('Access-Control-Allow-Origin', '*')
               res.setHeader('Content-Type', 'application/json')
               res.statusCode = 500
               res.end(
@@ -53,14 +79,16 @@ function rsvpApiPlugin(): Plugin {
           return
         }
 
-        if (req.url === '/api/rsvp' && req.method === 'GET') {
+        if (isRsvpRoute && req.method === 'GET') {
           try {
             const filePath = path.resolve(import.meta.dirname, 'src/data/rsvps.json')
             const content = await fs.readFile(filePath, 'utf-8')
+            res.setHeader('Access-Control-Allow-Origin', '*')
             res.setHeader('Content-Type', 'application/json')
             res.statusCode = 200
             res.end(content)
           } catch {
+            res.setHeader('Access-Control-Allow-Origin', '*')
             res.setHeader('Content-Type', 'application/json')
             res.statusCode = 200
             res.end(JSON.stringify([]))
