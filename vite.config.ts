@@ -77,5 +77,19 @@ function rsvpApiPlugin(): Plugin {
 export default defineConfig({
   base: '/GreeshmaWeddingWebsite/',
   plugins: [react(), tailwindcss(), rsvpApiPlugin()],
+  server: {
+    proxy: {
+      '/api/face': {
+        target: 'https://localhost:7009',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/api/admin': {
+        target: 'https://localhost:7009',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })
 

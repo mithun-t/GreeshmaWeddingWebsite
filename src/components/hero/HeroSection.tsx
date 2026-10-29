@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Camera } from 'lucide-react'
 import type { WeddingConfig } from '../../types/wedding.ts'
 import { PetalCanvas } from './PetalCanvas.tsx'
 
@@ -9,6 +9,13 @@ interface HeroSectionProps {
 export function HeroSection({ data }: HeroSectionProps) {
   const scrollToNext = () => {
     const target = document.getElementById('celebration')
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const scrollToPhotos = () => {
+    const target = document.getElementById('find-photos')
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' })
     }
@@ -53,12 +60,21 @@ export function HeroSection({ data }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Bottom Cue matching reference video: SCROLL TO DISCOVER with bouncing chevron */}
-      <div className="relative z-20 pb-10 flex flex-col items-center text-center">
+      {/* Bottom Cue with Quick CTA: FIND YOUR PHOTOS & SCROLL TO DISCOVER */}
+      <div className="relative z-20 pb-10 flex flex-col items-center text-center gap-3">
+        <button
+          type="button"
+          onClick={scrollToPhotos}
+          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#8B263E]/30 bg-white/80 backdrop-blur-xs text-xs font-semibold text-[#8B263E] hover:bg-[#8B263E] hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
+        >
+          <Camera className="h-3.5 w-3.5" />
+          <span>Find Your Photos</span>
+        </button>
+
         <button
           type="button"
           onClick={scrollToNext}
-          className="group flex flex-col items-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+          className="group flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105"
         >
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-[#7A6A60] uppercase">
             Scroll to discover

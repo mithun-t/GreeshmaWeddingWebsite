@@ -1,4 +1,4 @@
-import { Heart, Share2, ArrowUp } from 'lucide-react'
+import { Heart, Share2, ArrowUp, Camera } from 'lucide-react'
 import type { WeddingConfig } from '../../types/wedding.ts'
 import { createWhatsAppShareUrl } from '../../lib/calendar.ts'
 
@@ -9,6 +9,13 @@ interface FooterProps {
 export function Footer({ data }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const scrollToPhotos = () => {
+    const target = document.getElementById('find-photos')
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   const shareWhatsApp = () => {
@@ -28,7 +35,16 @@ export function Footer({ data }: FooterProps) {
       </p>
 
       {/* Share and Back to Top actions */}
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <button
+          type="button"
+          onClick={scrollToPhotos}
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#8B263E]/20 bg-white px-4 py-2 text-xs font-medium text-[#8B263E] hover:bg-[#8B263E]/5 transition-colors cursor-pointer"
+        >
+          <Camera className="h-3.5 w-3.5" />
+          <span>Find Photos</span>
+        </button>
+
         <button
           type="button"
           onClick={shareWhatsApp}
